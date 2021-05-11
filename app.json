@@ -77,5 +77,35 @@
         "id": "PushIn"
       }
     ]
-  }
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "Fermentrack"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "measure_battery",
+        "measure_pressure",
+        "measure_temperature",
+        "measure_voltage"
+      ],
+      "images": {
+        "small": "/drivers/fermentrack1/assets/images/small.png",
+        "large": "/drivers/fermentrack1/assets/images/large.png",
+        "xlarge": "/drivers/fermentrack1/assets/images/xlarge.png"
+      },
+      "Pair": [
+        {
+          "id": "list_devices",
+          "template": "list_devices"
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "id": "fermentrack1"
+    }
+  ]
 }
