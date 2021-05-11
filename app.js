@@ -48,7 +48,7 @@ class MyApp extends Homey.App
                 } catch(e) {
                     return console.error(e);
                 }
-            });
+            });};
         const server = http.createServer(requestListener);
         server.listen(8000);
     };
