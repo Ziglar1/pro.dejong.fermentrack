@@ -44,9 +44,22 @@ class MyApp extends Homey.App
                     const gravitySensor = data.gravity_sensors.find((sensor) => {
                         return sensor.name === 'iSpindel001';
                     });
-                    console.log('GRAVITY', gravitySensor.gravity);
-                    console.log('TEMPERATURE', gravitySensor.temp);
-                    console.log('BATTERY', data.battery);
+                    const data = JSON.parse(bodyMsg);
+                    const drivers = this.homey.drivers.getDrivers();
+                    for (const driver in drivers)
+                    {
+                        let devices = this.homey.drivers.getDriver(driver).getDevices();
+                        for (let i = 0; i < devices.length; i++)
+                        {
+                            let device = devices[i];
+                            if (device.updateCapabilities)
+                            {
+                                device.updateCapabilities(data);
+                            }
+                        }
+                    }
+
+
                 } catch(e) {
                     return console.error(e);
                 }
