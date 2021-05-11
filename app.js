@@ -25,6 +25,7 @@ class MyApp extends Homey.App
         const requestListener = (request, response) => {
             let body = '';
             request.on('data', (chunk) => {
+                console.log('chunk', chunk);
                 body += chunk.toString(); // convert Buffer to string
                 if (body.length > 10000) {
                     this.updateLog("Push data error: Payload too large", 0);
@@ -49,6 +50,10 @@ class MyApp extends Homey.App
                     return console.error(e);
                 }
             });
+        const server = http.createServer(requestListener);
+        server.listen(8000);
+    }
+
     async getSomething()
     {
         return "";
