@@ -44,6 +44,19 @@ class MyDevice extends Device {
   async onDeleted() {
     this.log('MyDevice has been deleted');
   }
+
+  async updateCapabilities(data)
+  {
+      const dd = this.getData();
+      if (data.name === dd.id)
+      {
+          this.setCapabilityValue('measure_gravity', parseInt(data.gravity));
+          this.setCapabilityValue('measure_temperature', Number(data.temp));
+          this.setCapabilityValue('measure_battery', Number(data.battery));
+      }
+  }
+
+
 }
 
 module.exports = MyDevice;
