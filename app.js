@@ -34,8 +34,7 @@ class MyApp extends Homey.App
                 body = '';
                 response.writeHead(200);
                 response.end('ok');
-                const data = JSON.parse(bodyMsg);
-                console.log(data);
+                console.log(bodyMsg)
             });
         }
         const server = http.createServer(requestListener);
