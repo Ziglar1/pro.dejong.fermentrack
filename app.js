@@ -35,7 +35,11 @@ class MyApp extends Homey.App
                 body = '';
                 response.writeHead(200);
                 response.end('ok');
-                console.log(bodyMsg)
+                const data = JSON.parse(msgBody);
+                    const gravitySensor = data.gravity_sensors.find((sensor) => {
+                    return sensor.name === 'iSpindel001';
+                });
+            console.log('MY GRAVITY VALUE', gravitySensor.gravity);
             });
         }
         const server = http.createServer(requestListener);
