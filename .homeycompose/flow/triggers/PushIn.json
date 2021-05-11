@@ -1,0 +1,50 @@
+{
+  "title": {
+    "en": "Push gets in"
+  },
+  "hint": {
+    "en": "Use Fermentrack to push information to this card"
+  },
+  "tokens": [
+    {
+      "type": "number",
+      "name": "Gravity",
+      "title": {
+        "en": "SG"
+      },
+      "example": {
+        "en": "Gravity"
+      }
+    },
+    {
+      "type": "number",
+      "name": "Temperature",
+      "title": {
+        "en": "Temperature"
+      },
+      "example": {
+        "en": "Temperature"
+      }
+    },
+    {
+      "type": "number",
+      "name": "ABV",
+      "title": {
+        "en": "ABV"
+      },
+      "example": {
+        "en": "Percentage"
+      }
+    },
+    {
+      "type": "number",
+      "name": "Battery",
+      "title": {
+        "en": "Battery"
+      },
+      "example": {
+        "en": "Voltage"
+      }
+    }
+  ]
+}
