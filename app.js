@@ -1,22 +1,33 @@
 'use strict';
 
 const Homey = require('homey');
+const http = require('http');
 
 class MyApp extends Homey.App {
-  async onInit() {
-    const id = Homey.env.WEBHOOK_ID; // "56db7fb12dcf75604ea7977d"
-    const secret = Homey.env.WEBHOOK_SECRET; // "2uhf83h83h4gg34..."
-    const data = {
-      // Provide unique properties for this Homey here
-      deviceId: 'Ispindel001',
-      name: ''
-    };
-
-    const myWebhook = await this.homey.cloud.createWebhook(id, secret, data);
-
-    myWebhook.on('message', args => {
-      console.log(args)
-    });
+    runListener() {
+      const requestListener = (request, response) => {
+          let body = '';
+          request.on('data', (chunk) => {
+              body += chunk.toString(); // convert Buffer to string
+              if (body.length > 10000) {
+                  this.updateLog("Push data error: Payload too large", 0);
+                  response.writeHead(413);
+                  response.end('Payload Too Large');
+                  body = '';
+                  return;
+              }
+          });
+          request.on('end', () => {
+              let bodyMsg = body;
+              body = '';
+              response.writeHead(200);
+              response.end('ok');
+              const data = JSON.parge(bodyMsg);
+              console.log(data);
+          });
+      }
+      const server = http.createServer(requestListener);
+      server.listen(8000);
   }
 }
 
