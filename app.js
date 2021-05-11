@@ -12,7 +12,7 @@ class MyApp extends Homey.App
     {
         this.log('MyApp has been initialized');
         this.pushServerPort = 8000;
-        this.runsListener();
+        this.runListener();
         this.detectedGateways = [];
     }
 
@@ -34,7 +34,7 @@ class MyApp extends Homey.App
                 body = '';
                 response.writeHead(200);
                 response.end('ok');
-                const data = JSON.parge(bodyMsg);
+                const data = JSON.parse(bodyMsg);
                 console.log(data);
             });
         }
