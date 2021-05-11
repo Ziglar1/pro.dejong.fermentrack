@@ -48,12 +48,13 @@ class MyDevice extends Device {
   async updateCapabilities(data)
   {
       const dd = this.getData();
-      if (data.name === dd.id)
+      const sensor = data.gravity_sensors.find( ({name }) => name === dd.id);
+      if (sensor)
       {
-          this.setCapabilityValue('measure_gravity', parseInt(data.gravity));
-          this.setCapabilityValue('measure_temperature', Number(data.temp));
+          this.setCapabilityValue('measure_gravity', Number(sensor.gravity));
+          this.setCapabilityValue('measure_temperature', Number(sensor.temp));
           const batV = Number(data.battery);
-            let batP = (batV - 4.2) / (4.2 - 3) * 100;
+            let batP = (batV - 3.2) / (4.3 - 3.2) * 100;
             if (batP > 100)
             {
                 batP = 100;
