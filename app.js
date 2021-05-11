@@ -25,7 +25,6 @@ class MyApp extends Homey.App
         const requestListener = (request, response) => {
             let body = '';
             request.on('data', (chunk) => {
-                console.log('chunk', chunk);
                 body += chunk.toString(); // convert Buffer to string
                 if (body.length > 10000) {
                     this.updateLog("Push data error: Payload too large", 0);
@@ -40,17 +39,16 @@ class MyApp extends Homey.App
                 body = '';
                 response.writeHead(200);
                 response.end('ok');
-                const data = JSON.parse(bodyMsg);
+                try {
+                    const data = JSON.parse(bodyMsg);
                     const gravitySensor = data.gravity_sensors.find((sensor) => {
-                    return sensor.name === 'iSpindel001';
-                });
-            console.log('MY GRAVITY VALUE', gravitySensor.gravity);
+                        return sensor.name === 'iSpindel001';
+                    });
+                    console.log('MY GRAVITY VALUE', gravitySensor.gravity);
+                } catch(e) {
+                    return console.error(e);
+                }
             });
-        }
-        const server = http.createServer(requestListener);
-        server.listen(8000);
-    }
-
     async getSomething()
     {
         return "";
