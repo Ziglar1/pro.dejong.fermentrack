@@ -44,7 +44,7 @@ class MyApp extends Homey.App
                     const gravitySensor = data.gravity_sensors.find((sensor) => {
                         return sensor.name === 'iSpindel001';
                     });
-                    console.log('MY GRAVITY VALUE', gravitySensor.gravity);
+                    console.log('GRAVITY', gravitySensor.gravity);
                 } catch(e) {
                     return console.error(e);
                 }
