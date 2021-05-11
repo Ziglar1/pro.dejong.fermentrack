@@ -107,6 +107,11 @@
           "template": "add_devices"
         }
       ],
+      "energy": {
+        "batteries": [
+          "INTERNAL"
+        ]
+      },
       "id": "fermentrack"
     }
   ],
@@ -118,7 +123,7 @@
       },
       "getable": true,
       "setable": false,
-      "icon": "/assets/your_icon.svg"
+      "icon": "/assets/icon.svg"
     }
   }
 }

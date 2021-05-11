@@ -28,6 +28,6 @@
 ],
 "energy":
     {
-        "batteries": ["18650"]
+        "batteries": ["INTERNAL"]
     }
 }

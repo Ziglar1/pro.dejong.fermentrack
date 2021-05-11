@@ -14,19 +14,18 @@ class MyDriver extends Driver {
    * onPairListDevices is called when a user is adding a device and the 'list_devices' view is called.
    * This should return an array with the data of devices that are available for pairing.
    */
-  async onPairListDevices() {
-    return [
-      // Example device data, note that `store` is optional
-      // {
-      //   name: 'My Device',
-      //   data: {
-      //     id: 'my-device',
-      //   },
-      //   store: {
-      //     address: '127.0.0.1',
-      //   },
-      // },
-    ];
+   async onPairListDevices()
+   {
+       const devices = this.homey.app.detectedGateways.map(device => (
+       {
+           name: device.model,
+           data:
+           {
+               id: device.PASSKEY
+           }
+       }));
+       return devices;
+    ;
   }
 }
 
