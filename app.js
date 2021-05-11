@@ -51,27 +51,8 @@ class MyApp extends Homey.App
             });
         const server = http.createServer(requestListener);
         server.listen(8000);
-    }
+    };
 
-    async getSomething()
-    {
-        return "";
-    }
-
-    async addSomething(body)
-    {
-        this.log(body);
-    }
-
-    async updateSomething(id, body)
-    {
-        this.log(id, body);
-    }
-
-    async deleteSomething(id)
-    {
-        this.log(id);
-    }
 }
 
 module.exports = MyApp;
