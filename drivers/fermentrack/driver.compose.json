@@ -12,5 +12,18 @@
     "small": "/drivers/fermentrack/assets/images/small.png",
     "large": "/drivers/fermentrack/assets/images/large.png",
     "xlarge": "/drivers/fermentrack/assets/images/xlarge.png"
-  }
+  },
+  "pair": [
+    {
+        "id": "list_my_devices",
+        "template": "list_devices",
+        "navigation": {
+            "next": "add_my_devices"
+        }
+    },
+    {
+        "id": "add_my_devices",
+        "template": "add_devices"
+    }
+]
 }

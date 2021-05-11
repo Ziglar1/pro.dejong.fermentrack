@@ -77,5 +77,35 @@
         "id": "PushIn"
       }
     ]
+  },
+  "drivers": [
+    {
+      "name": {
+        "en": "fermentrack"
+      },
+      "class": "sensor",
+      "capabilities": [
+        "measure_battery",
+        "measure_temperature",
+        "measure_gravity"
+      ],
+      "images": {
+        "small": "/drivers/fermentrack/assets/images/small.png",
+        "large": "/drivers/fermentrack/assets/images/large.png",
+        "xlarge": "/drivers/fermentrack/assets/images/xlarge.png"
+      },
+      "id": "fermentrack"
+    }
+  ],
+  "capabilities": {
+    "measure_gravity": {
+      "type": "number",
+      "title": {
+        "en": "Specific Gravity"
+      },
+      "getable": true,
+      "setable": false,
+      "icon": "/assets/your_icon.svg"
+    }
   }
 }
