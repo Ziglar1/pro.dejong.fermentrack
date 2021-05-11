@@ -52,7 +52,13 @@ class MyDevice extends Device {
       {
           this.setCapabilityValue('measure_gravity', parseInt(data.gravity));
           this.setCapabilityValue('measure_temperature', Number(data.temp));
-          this.setCapabilityValue('measure_battery', Number(data.battery));
+          const batV = Number(data.battery);
+            let batP = (batV - 4.2) / (4.2 - 3) * 100;
+            if (batP > 100)
+            {
+                batP = 100;
+            }
+          this.setCapabilityValue('measure_battery', Number(batP));
       }
   }
 
