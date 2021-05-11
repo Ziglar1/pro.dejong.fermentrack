@@ -16,15 +16,15 @@ class MyDriver extends Driver {
    */
    async onPairListDevices()
    {
-       const devices = this.homey.app.detectedGateways.map(device => (
-       {
-           name: device.model,
-           data:
-           {
-               id: device.PASSKEY
-           }
-       }));
-       return devices;
+      const devices = [
+      {
+          name: "Fermentrack",
+          data:
+          {
+              id: "iSpindel001"
+          }
+      }];
+      return devices;
     ;
   }
 }
