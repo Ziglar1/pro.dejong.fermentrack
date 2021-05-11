@@ -1,0 +1,16 @@
+{
+  "name": {
+    "en": "fermentrack"
+  },
+  "class": "sensor",
+  "capabilities": [
+    "measure_battery",
+    "measure_temperature",
+    "measure_gravity"
+  ],
+  "images": {
+    "small": "/drivers/fermentrack/assets/images/small.png",
+    "large": "/drivers/fermentrack/assets/images/large.png",
+    "xlarge": "/drivers/fermentrack/assets/images/xlarge.png"
+  }
+}

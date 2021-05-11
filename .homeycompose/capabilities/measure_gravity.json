@@ -1,0 +1,9 @@
+{
+    "type": "number",
+    "title": {
+        "en": "Specific Gravity"
+    },
+    "getable": true,
+    "setable": false,
+    "icon": "/assets/your_icon.svg"
+}
